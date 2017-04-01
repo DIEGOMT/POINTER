@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <conio.h>
+
+int doicho(int *x, int *y, int *z)
+{
+	int t;
+	t=*x;
+	*x=*y;
+	*y=*z;
+	*z=t;
+	printf("Trong ham: a=%d, b=%d, c=%d\n",*x,*y,*z);
+}
+int main()
+{
+	int a,b,c;
+	printf("Nhap a,b,c: \n"); scanf("%d%d%d",&a,&b,&c);
+	doicho(&a,&b,&c);
+	printf("Sau ham doicho: a=%d, b=%d, c=%d",a,b,c);
+	
+}
