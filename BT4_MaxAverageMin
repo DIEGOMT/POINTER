@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <malloc.h>
+
+int sort(int *a, int *b, int *c)
+{
+
+    int max,average,min;
+
+    max= (((*a>*b) ? *a:*b)>*c) ? ((*a>*b) ? *a:*b):*c;
+    min= (((*a<*b) ? *a:*b)<*c) ? ((*a<*b) ? *a:*b):*c;
+    
+    if (*a<*b && *b<*c) average = *b;
+    if (*b<*a && *a<*c) average = *a;
+    if (*a<*c && *c<*b) average = *c;
+    
+    if (*a>*b && *b>*c) average = *b;
+    if (*b>*a && *a>*c) average = *a;
+    if (*a>*c && *c>*b) average = *c;
+    
+    *a = max; *b = average; *c = min;
+}
+
+
+int main()
+{
+    int *k;
+    k = malloc(3*sizeof(int));
+    printf("Nhap a: \n"); scanf("%d",&*k);
+    printf("Nhap b: \n"); scanf("%d",&*(k+1));
+    printf("Nhap c: \n"); scanf("%d",&*(k+2));
+
+    int a = *k;
+    int b = *(k+1);
+    int c = *(k+2);
+
+    printf("\nTruoc khi goi ham sort():\n");
+    printf("a = %d\nb = %d\nc = %d\n",a,b,c);
+
+    sort(&a,&b,&c);
+ 
+    printf("\nSau khi goi ham sort():\n");
+    printf("a = %d\nb = %d\nc = %d\n",a,b,c);
+
+}
